@@ -2,9 +2,10 @@ import boto3
 from datetime import datetime, timedelta
 
 # def lambda_handler(event, context):
-    
-buckets_list = ['python-test-ben', 'python-test-ben2']
-destination_bucket = 'cv-design-dev'
+
+# Enter a list of buckets to copy from
+buckets_list = ['']
+destination_bucket = ''
 
 s3_client = boto3.client('s3')
 
@@ -24,14 +25,14 @@ def iterate_s3_buckets(bucket_name):
                 print(f"Moving {object['Key']} from {bucket_name} to {destination_bucket}")
 
                 # Copy object
-                # s3_client.copy_object(
-                #     Bucket = destination_bucket,
-                #     Key = bucket_name + f"/{object['Key']}",
-                #     CopySource = {'Bucket':bucket_name, 'Key':object['Key']}
-                # )
+                s3_client.copy_object(
+                    Bucket = destination_bucket,
+                    Key = bucket_name + f"/{object['Key']}",
+                    CopySource = {'Bucket':bucket_name, 'Key':object['Key']}
+                )
 
                 # Delete original object
-                # s3_client.delete_object(Bucket = bucket_name, Key = object['Key'])
+                s3_client.delete_object(Bucket = bucket_name, Key = object['Key'])
                 print(f"Deleted {object['Key']} from {bucket_name}")
 
                 count += 1
