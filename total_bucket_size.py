@@ -1,3 +1,6 @@
+# This script will print the total size in GBs and MBs
+# of a single bucket
+
 import boto3
 
 bucket_name = 'display-portal-dev'

@@ -1,3 +1,6 @@
+# This script will copy and move multiple objects from multiple buckets into a destination bucket
+# depending on the days set (last_modified time)
+
 import boto3
 from datetime import datetime, timedelta
 
