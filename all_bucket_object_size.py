@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 from numpy import byte
   
-buckets_list = ['display-portal-dev', 'cv-display-dev']
+buckets_list = ['']
 
 s3_client = boto3.client('s3')
 s3_resource = boto3.resource('s3')
